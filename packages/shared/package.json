@@ -1,0 +1,15 @@
+{
+  "name": "@get-popcorn/shared",
+  "version": "1.0.0",
+  "description": "Shared types and utilities for the popcorn game",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "echo \"No tests yet\""
+  },
+  "devDependencies": {
+    "typescript": "^5.8.0"
+  }
+}

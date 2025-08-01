@@ -1,0 +1,16 @@
+{
+  "name": "@get-popcorn/mesh-contracts",
+  "version": "1.0.0",
+  "description": "Mesh contract testing and development utilities",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "npx tsx index.ts",
+    "test": "npx tsx index.ts"
+  },
+  "dependencies": {
+    "@meshsdk/core": "^1.8",
+    "@meshsdk/core-csl": "^1.8",
+    "axios": "^1.7.5",
+    "tsx": "^4.9.4"
+  }
+}

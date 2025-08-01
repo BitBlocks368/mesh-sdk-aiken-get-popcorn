@@ -1,8 +1,9 @@
 {
-  "name": "frontend",
+  "name": "@get-popcorn/game",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "React-based popcorn game with blockchain integration",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -13,7 +14,9 @@
     "@types/ws": "^8.18.1",
     "axios": "^1.11.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "@get-popcorn/shared": "*",
+    "@get-popcorn/contracts": "*"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",

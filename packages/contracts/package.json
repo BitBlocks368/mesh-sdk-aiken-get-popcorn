@@ -1,0 +1,22 @@
+{
+  "name": "@get-popcorn/contracts",
+  "version": "1.0.0",
+  "description": "Cardano smart contract interactions for the popcorn game",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "echo \"No tests yet\""
+  },
+  "dependencies": {
+    "@meshsdk/core": "^1.8",
+    "@meshsdk/core-csl": "^1.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.0"
+  },
+  "peerDependencies": {
+    "@get-popcorn/shared": "*"
+  }
+}

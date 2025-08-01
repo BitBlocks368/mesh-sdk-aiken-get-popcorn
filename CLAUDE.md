@@ -16,6 +16,18 @@ The project demonstrates three types of Plutus validators:
 
 ## Development Commands
 
+### Prerequisites
+Aiken must be installed for smart contract development:
+```bash
+# Install Aiken (one-time setup)
+curl -sSfL https://install.aiken-lang.org | sh
+source $HOME/.aiken/bin/env
+aikup  # Install latest Aiken version
+
+# Add to your shell profile for permanent PATH access:
+echo 'source $HOME/.aiken/bin/env' >> ~/.zshrc  # or ~/.bashrc
+```
+
 ### Smart Contract Development
 ```bash
 # Build and check Aiken smart contracts
@@ -29,25 +41,59 @@ aiken check -m foo    # Run tests matching "foo"
 aiken docs            # Generate documentation
 ```
 
-### TypeScript Testing
+### Workspace Commands
 ```bash
-# Run the complete test suite against local devnet
-npm run dev
+# Game development
+npm run dev:game        # Start React game on http://localhost:5173
+npm run build:game      # Build game for production
 
-# Install dependencies
-npm install
+# Contract development  
+npm run dev:contracts   # Run mesh contract tests
+npm run build:contracts # Build contract interaction layer
+
+# Workspace management
+npm run build:all       # Build all packages
+npm run build:shared    # Build shared types package
+npm install            # Install all workspace dependencies
 ```
 
 ### Local Devnet Setup
-```bash
-# Install Yaci DevKit globally
-npm install -g @bloxbean/yaci-devkit
 
-# Start local Cardano devnet
+#### Prerequisites
+Install Yaci DevKit and Viewer:
+```bash
+# Install Yaci DevKit and Viewer globally
+npm install -g @bloxbean/yaci-devkit
+npm install -g @bloxbean/yaci-viewer
+```
+
+#### Starting the Devnet
+```bash
+# Start local Cardano devnet with required components
 yaci-devkit up --enable-yaci-store --interactive
 
-# Optional: Start block explorer
+# First run will download Cardano node binaries (~150MB)
+# Wait for "DevNet is ready" message before proceeding
+
+# Optional: Start blockchain explorer in another terminal
 yaci-viewer
+```
+
+#### Devnet Endpoints
+Once running, these endpoints are available:
+- **Cardano Node API:** http://localhost:8080/api/v1
+- **Admin API:** http://localhost:10000  
+- **Yaci Store API:** http://localhost:8080/api/v1/stores
+- **Yaci Viewer:** http://localhost:3001 (if started)
+
+#### Devnet Management
+```bash
+# In the Yaci DevKit shell:
+start          # Start the devnet
+stop           # Stop the devnet  
+reset          # Reset devnet data
+info           # Show devnet information
+topup <addr>   # Fund an address with test ADA
 ```
 
 ## Architecture

@@ -1,3 +1,5 @@
+// Shared types and utilities for the popcorn game
+
 export interface GameState {
   gameActive: boolean;
   popcornCount: number;
@@ -12,6 +14,20 @@ export interface PopcornKernelType {
   y: number;
   isPopped: boolean;
   poppedAt?: number;
+  spawnedAt: number;
+  state: "dormant" | "warming" | "jumping" | "ready" | "popped" | "falling";
+  warmingAt?: number;
+  jumpingAt?: number;
+  readyAt?: number;
+  originalX: number;
+  originalY: number;
+  settledX?: number;
+  settledY?: number;
+  velocityX?: number;
+  velocityY?: number;
+  gravity?: number;
+  settled?: boolean;
+  bounceCount: number;
 }
 
 export interface GameStats {
@@ -29,6 +45,22 @@ export interface Player {
   level: number;
 }
 
+// Blockchain-specific types
+export interface BlockchainGameState extends GameState {
+  walletConnected: boolean;
+  walletAddress?: string;
+  pendingTx?: string;
+  tokenBalance: number;
+}
+
+export interface GameTransaction {
+  txHash: string;
+  gameScore: number;
+  tokensEarned: number;
+  timestamp: number;
+  status: 'pending' | 'confirmed' | 'failed';
+}
+
 export interface WebSocketMessage {
   type: 'game_update' | 'player_action' | 'broadcast' | 'connect' | 'disconnect';
   playerId?: string;
@@ -41,12 +73,4 @@ export interface PopcornAction {
   kernelId: string;
   position: { x: number; y: number };
   points: number;
-}
-
-export interface CardanoTransaction {
-  txHash: string;
-  amount: number;
-  asset: string;
-  status: 'pending' | 'confirmed' | 'failed';
-  createdAt: number;
 }
